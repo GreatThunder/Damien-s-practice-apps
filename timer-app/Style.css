@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.5s;
+    background: linear-gradient(to top, #aeefff 0%, #f4f4f4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sun and clouds for light mode */
+.sun {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+    background: #ffe066;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px #ffe06688;
+    z-index: 0;
+    transition: left 0.1s linear;
+    will-change: left;
+}
+.cloud {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 0;
+}
+.cloud1 { width: 60px; height: 40px; top: 120px; left: 120px; }
+.cloud2 { width: 40px; height: 30px; top: 140px; left: 160px; }
+.cloud3 { width: 50px; height: 35px; top: 130px; left: 100px; }
+
+/* Moon and stars for dark mode */
+body.dark {
+    background: linear-gradient(to top, #232946 0%, #121629 100%);
+}
+.moon {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    width: 70px;
+    height: 70px;
+    background: #f4d160;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 10px #f4d16088;
+    z-index: 0;
+    transition: left 0.1s linear;
+    will-change: left;
+}
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 0;
+}
+.star1 { width: 4px; height: 4px; top: 80px; left: 200px; }
+.star2 { width: 3px; height: 3px; top: 100px; left: 250px; }
+.star3 { width: 2px; height: 2px; top: 150px; left: 220px; }
+.star4 { width: 3px; height: 3px; top: 180px; left: 180px; }
+.star5 { width: 2px; height: 2px; top: 200px; left: 300px; }
+
+/* Hide sun/clouds in dark mode, hide moon/stars in light mode */
+.sun, .cloud { display: block; }
+body.dark .sun, body.dark .cloud { display: none; }
+.moon, .star { display: none; }
+body.dark .moon, body.dark .star { display: block; }
+
+/* Rest of your styles... */
+.container {
+    background: rgba(255,255,255,0.9);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    transition: background 0.5s;
+}
+
+body.dark .container {
+    background: rgba(30,34,54,0.95);
+    color: #fff;
+}
+
+#timer {
+    font-size: 4rem;
+    margin: 1.5rem 0;
+    letter-spacing: 2px;
+    color: #1a4b8c; /* Deep blue for light mode */
+    transition: color 0.5s ease;
+}
+
+body.dark #timer {
+    color: #f4d160; /* Gold color for dark mode */
+}
+
+.controls button, #toggle-mode {
+    font-size: 1.1rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.controls button:hover, #toggle-mode:hover {
+    background: #217dbb;
+    transform: translateY(-2px);
+}
+
+body.dark .controls button, body.dark #toggle-mode {
+    background: #232946;
+    color: #f4d160;
+    border: 1px solid #f4d160;
+}
+body.dark .controls button:hover, body.dark #toggle-mode:hover {
+    background: #121629;
+    transform: translateY(-2px);
+}
